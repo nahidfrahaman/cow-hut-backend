@@ -1,0 +1,145 @@
+{
+  "keep": {
+    "days": true,
+    "amount": 14
+  },
+  "auditLog": "C:\\projects\\cow-hut-backend\\logs\\winston\\successes\\.92a937616d2607663c49b6f5a3ee4bb290de5938-audit.json",
+  "files": [
+    {
+      "date": 1686886763424,
+      "name": "C:\\projects\\cow-hut-backend\\logs\\winston\\successes\\um-2023-16-06-09-sucess.log",
+      "hash": "a0eda5440d84141bfcb8695bd9a81acf77c27abb63d1f7391d29a6b0907a5ceb"
+    },
+    {
+      "date": 1686896208471,
+      "name": "C:\\projects\\cow-hut-backend\\logs\\winston\\successes\\um-2023-16-06-12-sucess.log",
+      "hash": "19578f7fa74edd0e1ff3fcb123b28e88cc26a236bc0f395e3b16ae3fae3dc851"
+    },
+    {
+      "date": 1686905525120,
+      "name": "C:\\projects\\cow-hut-backend\\logs\\winston\\successes\\um-2023-16-06-14-sucess.log",
+      "hash": "daedadd59fa8ed5347587083149e72659d8ddfc2c47ef0cadbdbd29d12cfefba"
+    },
+    {
+      "date": 1686906317706,
+      "name": "C:\\projects\\cow-hut-backend\\logs\\winston\\successes\\um-2023-16-06-15-sucess.log",
+      "hash": "217809f46855095e0529267b1c082a3e272c1d6a1d5d4e5824da0ddd944cd032"
+    },
+    {
+      "date": 1686922358820,
+      "name": "C:\\projects\\cow-hut-backend\\logs\\winston\\successes\\um-2023-16-06-19-sucess.log",
+      "hash": "3082ffdf5a1f70f085bca6c31037b8c4f772e166d87cbe3f9af414ef09195e00"
+    },
+    {
+      "date": 1686963904174,
+      "name": "C:\\projects\\cow-hut-backend\\logs\\winston\\successes\\um-2023-17-06-07-sucess.log",
+      "hash": "38256177f2f7806444edf97fea55c82fbaf76f15fbec446e717bae448b32f98f"
+    },
+    {
+      "date": 1686967261878,
+      "name": "C:\\projects\\cow-hut-backend\\logs\\winston\\successes\\um-2023-17-06-08-sucess.log",
+      "hash": "95bb08b9d035e7e852a2480520a03eb27bd00d253f2853d17f7c22c2b6a7aaeb"
+    },
+    {
+      "date": 1686974099244,
+      "name": "C:\\projects\\cow-hut-backend\\logs\\winston\\successes\\um-2023-17-06-09-sucess.log",
+      "hash": "1f3504135a0f8b539a2f802e01ca49d4ddedbfabf6e8f3e15dccb850182d84ea"
+    },
+    {
+      "date": 1686975184113,
+      "name": "C:\\projects\\cow-hut-backend\\logs\\winston\\successes\\um-2023-17-06-10-sucess.log",
+      "hash": "8e0836a1d20296360920625c4536db279f41d4d74d0a112439d7a5b243743874"
+    },
+    {
+      "date": 1686978245149,
+      "name": "C:\\projects\\cow-hut-backend\\logs\\winston\\successes\\um-2023-17-06-11-sucess.log",
+      "hash": "20498534220fefe8b8c6b9bbca70271df6e29a1011b21e2e3879bad20757625f"
+    },
+    {
+      "date": 1686994643130,
+      "name": "C:\\projects\\cow-hut-backend\\logs\\winston\\successes\\um-2023-17-06-15-sucess.log",
+      "hash": "e357eba5b8bba596a0bea87ca53ac7b35f9ea329070be6aeb1f3f071d42f0634"
+    },
+    {
+      "date": 1686996009716,
+      "name": "C:\\projects\\cow-hut-backend\\logs\\winston\\successes\\um-2023-17-06-16-sucess.log",
+      "hash": "8ddcbf644c9df4872e0b52c5e3a94e3363da39e717ecf398089504431144b623"
+    },
+    {
+      "date": 1687009444376,
+      "name": "C:\\projects\\cow-hut-backend\\logs\\winston\\successes\\um-2023-17-06-19-sucess.log",
+      "hash": "671834b0617ea4ef2d3dd17afbfba8f3db07a757fab7e1a8daf36893d5ad4ac6"
+    },
+    {
+      "date": 1687011029300,
+      "name": "C:\\projects\\cow-hut-backend\\logs\\winston\\successes\\um-2023-17-06-20-sucess.log",
+      "hash": "3655c0298eddffe0ffd961fa91de8b7c4ff54edd3af69a341e5576514f19433f"
+    },
+    {
+      "date": 1687014111704,
+      "name": "C:\\projects\\cow-hut-backend\\logs\\winston\\successes\\um-2023-17-06-21-sucess.log",
+      "hash": "542a29db77f788b68fc74a1e97a22a31fc18b0e043cd3e7319764a50b7d55e7f"
+    },
+    {
+      "date": 1687018956173,
+      "name": "C:\\projects\\cow-hut-backend\\logs\\winston\\successes\\um-2023-17-06-22-sucess.log",
+      "hash": "fbd09dd6351268c0ea1bc824f196d471152323e5baa347075df521e7ecab91f7"
+    },
+    {
+      "date": 1687023395818,
+      "name": "C:\\projects\\cow-hut-backend\\logs\\winston\\successes\\um-2023-17-06-23-sucess.log",
+      "hash": "b31fc2b6523c477fae433034d5ced4a3f7c9b1201ae96a3d315223d44b0cf5e1"
+    },
+    {
+      "date": 1687024862280,
+      "name": "C:\\projects\\cow-hut-backend\\logs\\winston\\successes\\um-2023-18-06-00-sucess.log",
+      "hash": "5b50f9a8753b3bd5f694061d4204b52d216bfeb76d9d8d010037f29683fd4bbd"
+    },
+    {
+      "date": 1687028439987,
+      "name": "C:\\projects\\cow-hut-backend\\logs\\winston\\successes\\um-2023-18-06-01-sucess.log",
+      "hash": "7b0d5a8e895352915a14ccd4510d17857ef62f1592e1b182dc6172d09720f4f7"
+    },
+    {
+      "date": 1687050774711,
+      "name": "C:\\projects\\cow-hut-backend\\logs\\winston\\successes\\um-2023-18-06-07-sucess.log",
+      "hash": "991adae5baea4866e11a36734ea77d32ec27b64821c98ea1fa4b4e39523fca9a"
+    },
+    {
+      "date": 1687053664283,
+      "name": "C:\\projects\\cow-hut-backend\\logs\\winston\\successes\\um-2023-18-06-08-sucess.log",
+      "hash": "dac0653724ac27b848500ee958d9c6afc58c1bf1d3cee1800baaf297fa94b84c"
+    },
+    {
+      "date": 1687057333588,
+      "name": "C:\\projects\\cow-hut-backend\\logs\\winston\\successes\\um-2023-18-06-09-sucess.log",
+      "hash": "d37279e9096e355ea91e3e116d637c057341ee4be486e420184b2e76647a98e1"
+    },
+    {
+      "date": 1687061606840,
+      "name": "C:\\projects\\cow-hut-backend\\logs\\winston\\successes\\um-2023-18-06-10-sucess.log",
+      "hash": "55d5c3afa501c406d5b71d9b78b8b1ac6a9a18e37608344ffb3bfb6375f86c41"
+    },
+    {
+      "date": 1687064493311,
+      "name": "C:\\projects\\cow-hut-backend\\logs\\winston\\successes\\um-2023-18-06-11-sucess.log",
+      "hash": "ec003701dc00f21e0a2fc8517f52d32fd1be1cbed26e7566890cc06d27bf938c"
+    },
+    {
+      "date": 1687069999640,
+      "name": "C:\\projects\\cow-hut-backend\\logs\\winston\\successes\\um-2023-18-06-12-sucess.log",
+      "hash": "ff4c7ef2f38998f63dbb40f3280b1db4a7ae735ac0f43613f4a802465806b944"
+    },
+    {
+      "date": 1687071727636,
+      "name": "C:\\projects\\cow-hut-backend\\logs\\winston\\successes\\um-2023-18-06-13-sucess.log",
+      "hash": "5f5b0bfa1051aacef130cc1bd361301ae5bd083bbae053850ce8523dbb9bcd7a"
+    },
+    {
+      "date": 1687080205616,
+      "name": "C:\\projects\\cow-hut-backend\\logs\\winston\\successes\\um-2023-18-06-15-sucess.log",
+      "hash": "be6c0a85a7084dd52c306bcb7c66d46e31c62cd69427db7bf157693ab772bd98"
+    }
+  ],
+  "hashType": "sha256"
+}

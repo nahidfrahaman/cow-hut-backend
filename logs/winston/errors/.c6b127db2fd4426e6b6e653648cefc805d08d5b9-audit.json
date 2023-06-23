@@ -1,0 +1,145 @@
+{
+  "keep": {
+    "days": true,
+    "amount": 14
+  },
+  "auditLog": "C:\\projects\\cow-hut-backend\\logs\\winston\\errors\\.c6b127db2fd4426e6b6e653648cefc805d08d5b9-audit.json",
+  "files": [
+    {
+      "date": 1686886763428,
+      "name": "C:\\projects\\cow-hut-backend\\logs\\winston\\errors\\um2023-16-06-09-error.log",
+      "hash": "623f8d15cdc75316e22f97b90c8763fd97f0e7acad06c775c1c839dead2f1b13"
+    },
+    {
+      "date": 1686896208479,
+      "name": "C:\\projects\\cow-hut-backend\\logs\\winston\\errors\\um2023-16-06-12-error.log",
+      "hash": "79db62c3555b00c3edc623fda328403f2f4ca908f7e5154512cad4b0d0e5b100"
+    },
+    {
+      "date": 1686905525127,
+      "name": "C:\\projects\\cow-hut-backend\\logs\\winston\\errors\\um2023-16-06-14-error.log",
+      "hash": "480329ec22024b3308212e9dba3448ab9a697e0faadd5ec49abf4b62a764a7c8"
+    },
+    {
+      "date": 1686906317710,
+      "name": "C:\\projects\\cow-hut-backend\\logs\\winston\\errors\\um2023-16-06-15-error.log",
+      "hash": "320b916432901832df4fd72f654640ac8c256c3a220794636d37c7c6b3055724"
+    },
+    {
+      "date": 1686922358825,
+      "name": "C:\\projects\\cow-hut-backend\\logs\\winston\\errors\\um2023-16-06-19-error.log",
+      "hash": "7c00a2c01265a764703645969f18aac38998132ee166b70c25f95b35654fdfd6"
+    },
+    {
+      "date": 1686963904183,
+      "name": "C:\\projects\\cow-hut-backend\\logs\\winston\\errors\\um2023-17-06-07-error.log",
+      "hash": "65843a961dc1dae9df518629e59d6dcdd568a5add6dfde9cd1b98ecee97fac55"
+    },
+    {
+      "date": 1686967261882,
+      "name": "C:\\projects\\cow-hut-backend\\logs\\winston\\errors\\um2023-17-06-08-error.log",
+      "hash": "012be846ee973e1f1b335defad9709a0cd1bba4faf2210fc5db6e78fdc7a0a4f"
+    },
+    {
+      "date": 1686974099253,
+      "name": "C:\\projects\\cow-hut-backend\\logs\\winston\\errors\\um2023-17-06-09-error.log",
+      "hash": "cff5b97cf534ad02aaa2889e83552733fab62a7e1003ed5617368cd18901012e"
+    },
+    {
+      "date": 1686975184117,
+      "name": "C:\\projects\\cow-hut-backend\\logs\\winston\\errors\\um2023-17-06-10-error.log",
+      "hash": "d3fd4d1b79d35ee598604c0ace1be9406cfba3ace425fef76f3f26a8528a89fb"
+    },
+    {
+      "date": 1686978245154,
+      "name": "C:\\projects\\cow-hut-backend\\logs\\winston\\errors\\um2023-17-06-11-error.log",
+      "hash": "6f9df90bac133c5c96eef67d1fe2d35d7246772be622d00a7c3d955f4e40d7ba"
+    },
+    {
+      "date": 1686994643139,
+      "name": "C:\\projects\\cow-hut-backend\\logs\\winston\\errors\\um2023-17-06-15-error.log",
+      "hash": "dc173948c8b0b1167e954231e7789c20bd1ff2ea0f41e5e877b8d81a626525fb"
+    },
+    {
+      "date": 1686996009720,
+      "name": "C:\\projects\\cow-hut-backend\\logs\\winston\\errors\\um2023-17-06-16-error.log",
+      "hash": "3cda6bcb291d03c7c205e6b3700f0a48341f0f241a2b052a42eb60b5fa218d57"
+    },
+    {
+      "date": 1687009444384,
+      "name": "C:\\projects\\cow-hut-backend\\logs\\winston\\errors\\um2023-17-06-19-error.log",
+      "hash": "198946c7a7b24d62db2f6fb120694028259b0d5296c1d3e45ae0bee13bc262f6"
+    },
+    {
+      "date": 1687011029316,
+      "name": "C:\\projects\\cow-hut-backend\\logs\\winston\\errors\\um2023-17-06-20-error.log",
+      "hash": "67d00bfcc0e66401d8fda9e027fd81927259d4df2597312de33d3c3d9a7094c1"
+    },
+    {
+      "date": 1687014111708,
+      "name": "C:\\projects\\cow-hut-backend\\logs\\winston\\errors\\um2023-17-06-21-error.log",
+      "hash": "4e4877ff4841eb52fbf4d809708e8819c51227d1364c3e7c00a60efaeed7ffba"
+    },
+    {
+      "date": 1687018956177,
+      "name": "C:\\projects\\cow-hut-backend\\logs\\winston\\errors\\um2023-17-06-22-error.log",
+      "hash": "13ef12d8919e0c57c1e1ed1be4400c5c54d297337cb26dc52ed338e2694a6a14"
+    },
+    {
+      "date": 1687023395822,
+      "name": "C:\\projects\\cow-hut-backend\\logs\\winston\\errors\\um2023-17-06-23-error.log",
+      "hash": "de377cbe5168166298b8cd7bff23b42a52f47f7d056e4f65fce9030f7f7ea06a"
+    },
+    {
+      "date": 1687024862284,
+      "name": "C:\\projects\\cow-hut-backend\\logs\\winston\\errors\\um2023-18-06-00-error.log",
+      "hash": "6b4cff19f1d0469a31d816dc87c93fa3829de8641659b48deba6d0619441fb6a"
+    },
+    {
+      "date": 1687028439991,
+      "name": "C:\\projects\\cow-hut-backend\\logs\\winston\\errors\\um2023-18-06-01-error.log",
+      "hash": "bcd3750daef200126b7430565431571526c453bb3c60d890a704a18981bd9d64"
+    },
+    {
+      "date": 1687050774716,
+      "name": "C:\\projects\\cow-hut-backend\\logs\\winston\\errors\\um2023-18-06-07-error.log",
+      "hash": "cca556b3fafcb9a4afd7ce339b6e6ec15ce12f9f9e690ca1a1ab19fe3f73e78c"
+    },
+    {
+      "date": 1687053664287,
+      "name": "C:\\projects\\cow-hut-backend\\logs\\winston\\errors\\um2023-18-06-08-error.log",
+      "hash": "8c7226e53492b9a5cf17c883ad23074ec1709d02ae4bf64da0a2af52549ca034"
+    },
+    {
+      "date": 1687057333592,
+      "name": "C:\\projects\\cow-hut-backend\\logs\\winston\\errors\\um2023-18-06-09-error.log",
+      "hash": "4f07b474c6be90e43c0c19ac7e82a393381de1bbb97c51bb4529cfe5daafbec5"
+    },
+    {
+      "date": 1687061606844,
+      "name": "C:\\projects\\cow-hut-backend\\logs\\winston\\errors\\um2023-18-06-10-error.log",
+      "hash": "e47d3b0feaddddd8e18099c8871a0541554f5905173e845a649d331e616095c9"
+    },
+    {
+      "date": 1687064493315,
+      "name": "C:\\projects\\cow-hut-backend\\logs\\winston\\errors\\um2023-18-06-11-error.log",
+      "hash": "59c75339b12ce4e02da844c5ab79618dd26c9e1a2310bd54832ffc05b00c70fe"
+    },
+    {
+      "date": 1687069999644,
+      "name": "C:\\projects\\cow-hut-backend\\logs\\winston\\errors\\um2023-18-06-12-error.log",
+      "hash": "ca7e2d66a0df00acf29377013f397e37803b962eb63235a1a6746aaf1066f3c1"
+    },
+    {
+      "date": 1687071727641,
+      "name": "C:\\projects\\cow-hut-backend\\logs\\winston\\errors\\um2023-18-06-13-error.log",
+      "hash": "0dc1044dffcce4de9a609e7afdb7bc4e3e78fb2e3c9ac3a5cae9e773ba648ed6"
+    },
+    {
+      "date": 1687080205625,
+      "name": "C:\\projects\\cow-hut-backend\\logs\\winston\\errors\\um2023-18-06-15-error.log",
+      "hash": "2589abfadecc482a5ce4ea2aba508409bedd9729b1ed45f2200bbaa0cf605670"
+    }
+  ],
+  "hashType": "sha256"
+}
