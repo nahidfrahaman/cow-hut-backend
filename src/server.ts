@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 import app from './app';
 import config from './config';
 
-const port = config.port || 3000;
+const port = config.port || 4000;
 
 process.on('uncaughtException', error => {
   console.log('uncaught expection is detected', error);

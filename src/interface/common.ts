@@ -14,3 +14,8 @@ export type IGenericErrorRespone = {
   message: string;
   errorMessage: GenericErrorMessage[];
 };
+
+export type ILoignUser = {
+  phoneNumber: string;
+  password: string;
+};

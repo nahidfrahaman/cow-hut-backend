@@ -4,6 +4,8 @@
   "main": "src/server.ts",
   "license": "MIT",
   "dependencies": {
+    "@types/bcrypt": "^5.0.0",
+    "bcrypt": "^5.1.0",
     "cors": "^2.8.5",
     "dotenv": "^16.1.4",
     "eslint": "^8.42.0",
@@ -12,8 +14,8 @@
     "winston": "^3.9.0"
   },
   "scripts": {
-    "dev": "ts-node-dev --respawn --transpile-only ./src/server.ts",
-    "start": "node dist/server.js",
+    "start": "ts-node-dev --respawn --transpile-only ./src/server.ts",
+    "dev": "node dist/server.js",
     "lint:check": "eslint --ignore-path .eslintignore --ext .js,.ts .",
     "lint:fix": "eslint . --ext .ts --fix",
     "prettier-check": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
@@ -28,13 +30,17 @@
     ]
   },
   "devDependencies": {
+    "@types/cookie-parser": "^1.4.3",
     "@types/cors": "^2.8.13",
     "@types/express": "^4.17.17",
+    "@types/jsonwebtoken": "^9.0.2",
     "@typescript-eslint/eslint-plugin": "^5.59.11",
     "@typescript-eslint/parser": "^5.59.11",
+    "cookie-parser": "^1.4.6",
     "eslint-config-prettier": "^8.8.0",
     "http-status-codes": "^2.2.0",
     "husky": "^8.0.3",
+    "jsonwebtoken": "^9.0.0",
     "lint-staged": "^13.2.2",
     "prettier": "^2.8.8",
     "ts-node-dev": "^2.0.0",

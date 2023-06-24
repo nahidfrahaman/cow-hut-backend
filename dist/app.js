@@ -19,9 +19,9 @@ app.use(express_1.default.urlencoded({ extended: true }));
 app.use('/api/v1/', route_1.default);
 app.use(globarErrorHandler_1.default);
 //testing purpuse
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
+// app.get('/', (req, res) => {
+//   res.send('Hello World!');
+// });
 app.use((req, res, next) => {
   next();
   res.status(400).json({
