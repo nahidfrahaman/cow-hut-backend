@@ -26,8 +26,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserService = void 0;
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
+const bcrypt_1 = __importDefault(require("bcrypt"));
+const http_status_codes_1 = require("http-status-codes");
 const mongoose_1 = __importDefault(require("mongoose"));
+const config_1 = __importDefault(require("../../../config"));
+const apiError_1 = __importDefault(require("../../../errror/apiError"));
 const paginationhelper_1 = require("../../../helper/paginationhelper");
+const admin_model_1 = require("../admin/admin.model");
 const auth_model_1 = require("../auth/auth.model");
 const user_constant_1 = require("./user.constant");
 const user_model_1 = require("./user.model");
@@ -105,9 +110,72 @@ const userDelete = (id) => __awaiter(void 0, void 0, void 0, function* () {
     }
     return finalResults;
 });
+const getmyProfile = (userData) => __awaiter(void 0, void 0, void 0, function* () {
+    console.log(userData);
+    let finalResults;
+    const agg = [
+        {
+            $match: {
+                phoneNumber: userData.userNumber,
+                role: userData.role,
+            },
+        },
+        {
+            $project: {
+                _id: 0,
+                name: 1,
+                phoneNumber: 1,
+                address: 1,
+                role: 1,
+            },
+        },
+    ];
+    if (userData.role === 'admin') {
+        const results = yield admin_model_1.Admin.aggregate(agg);
+        finalResults = results[0];
+    }
+    const results = yield user_model_1.User.aggregate(agg);
+    if (results.length) {
+        finalResults = results[0];
+    }
+    return finalResults;
+});
+const updateMyProfile = (userData, payload) => __awaiter(void 0, void 0, void 0, function* () {
+    const { userNumber, role } = userData;
+    const { name, password } = payload, updatedData = __rest(payload, ["name", "password"]);
+    const updatedUserdData = updatedData;
+    if (name && Object.keys(name).length > 0) {
+        Object.keys(name).forEach(key => {
+            const namekey = `name.${key}`;
+            updatedUserdData[namekey] = name[key];
+        });
+    }
+    if (password) {
+        updatedUserdData.password = yield bcrypt_1.default.hash(password, Number(config_1.default.bcrypt_solt_roud));
+    }
+    let finalResults = null;
+    if (role === 'seller' || role === 'buyer') {
+        const isUserExist = yield user_model_1.User.findOne({ phoneNumber: userNumber });
+        if (!isUserExist) {
+            throw new apiError_1.default(http_status_codes_1.StatusCodes.FORBIDDEN, 'fobidden');
+        }
+        console.log(isUserExist);
+        finalResults = yield user_model_1.User.findOneAndUpdate({ phoneNumber: userNumber, role }, updatedUserdData, { new: true });
+    }
+    if (role === 'admin') {
+        const isAdminExist = yield admin_model_1.Admin.findOne({ phoneNumber: userNumber });
+        if (!isAdminExist) {
+            throw new apiError_1.default(http_status_codes_1.StatusCodes.FORBIDDEN, 'fobidden');
+        }
+        finalResults = yield admin_model_1.Admin.findOneAndUpdate({ phoneNumber: userNumber, role }, updatedUserdData, { new: true });
+    }
+    return finalResults;
+});
 exports.UserService = {
     getAllUser,
     getSingleUser,
     updateUser,
     userDelete,
+    getmyProfile,
+    updateMyProfile,
 };

@@ -29,7 +29,7 @@ const postOrders = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, voi
 }));
 const getAllOrders = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const userData = req.user;
-    const results = yield oders_service_1.OrdersServie.getAllOrders(userData);
+    const results = yield oders_service_1.OrdersServie.getAllOrders(req.params.id, userData);
     (0, sendeResponse_1.default)(res, {
         statusCode: http_status_codes_1.StatusCodes.OK,
         success: true,

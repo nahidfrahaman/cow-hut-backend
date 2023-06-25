@@ -1,4 +1,5 @@
 "use strict";
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
@@ -84,9 +85,29 @@ const postOrders = (payload) => __awaiter(void 0, void 0, void 0, function* () {
     }
     return results;
 });
-const getAllOrders = (userData) => __awaiter(void 0, void 0, void 0, function* () {
-    console.log(userData);
-    const results = yield orders_model_1.Order.find().populate('cow').populate('buyer');
+const getAllOrders = (id, userData) => __awaiter(void 0, void 0, void 0, function* () {
+    const { userNumber, role } = userData;
+    let results = null;
+    if (role === 'buyer') {
+        const buyerData = yield user_model_1.User.findOne({ phoneNumber: userNumber });
+        console.log(buyerData._id);
+        results = yield orders_model_1.Order.find({ _id: id, buyer: buyerData._id })
+            .populate('cow')
+            .populate('buyer');
+    }
+    if (role === 'seller') {
+        const sellerData = yield user_model_1.User.findOne({ phoneNumber: userNumber });
+        console.log(sellerData._id);
+        const cowData = yield cow_model_1.Cow.findOne({ seller: sellerData._id });
+        if (cowData !== null) {
+            results = yield orders_model_1.Order.find({ _id: id, cow: cowData._id })
+                .populate('cow')
+                .populate('buyer');
+        }
+    }
+    if (role === 'admin') {
+        results = yield orders_model_1.Order.find().populate('cow').populate('buyer');
+    }
     return results;
 });
 exports.OrdersServie = {

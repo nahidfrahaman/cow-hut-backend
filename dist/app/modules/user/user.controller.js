@@ -67,9 +67,36 @@ const userDelete = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, voi
         data: results,
     });
 }));
+const getmyProfile = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const userData = req.user;
+    const results = yield user_service_1.UserService.getmyProfile(userData);
+    let message = 'get User profile successfuly';
+    if (!results) {
+        message = 'user not found';
+    }
+    (0, sendeResponse_1.default)(res, {
+        statusCode: http_status_codes_1.StatusCodes.OK,
+        success: true,
+        message: message,
+        data: results,
+    });
+}));
+const updatemyProfile = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const userData = req.user;
+    const updatedData = req.body;
+    const results = yield user_service_1.UserService.updateMyProfile(userData, updatedData);
+    (0, sendeResponse_1.default)(res, {
+        statusCode: http_status_codes_1.StatusCodes.OK,
+        success: true,
+        message: 'user updated Successfuly',
+        data: results,
+    });
+}));
 exports.UserController = {
     getAllUser,
     getSingleUser,
     updateUser,
     userDelete,
+    getmyProfile,
+    updatemyProfile,
 };

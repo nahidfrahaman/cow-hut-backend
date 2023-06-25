@@ -117,6 +117,12 @@ const getAllOrders = async (id: string, userData: any) => {
   }
   if (role === 'admin') {
     results = await Order.find().populate('cow').populate('buyer');
+    if (!results) {
+      throw new ApiError(
+        StatusCodes.EXPECTATION_FAILED,
+        'you have no order yeat'
+      );
+    }
   }
 
   return results;
