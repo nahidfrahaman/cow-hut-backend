@@ -47,7 +47,6 @@ const updateUser = catchAsync(
   async (req: Request, res: Response): Promise<void> => {
     const id = req.params.id;
     const updatedData = req.body;
-
     const results = await UserService.updateUser(id, updatedData);
     sendResponse<IUser>(res, {
       statusCode: StatusCodes.OK,

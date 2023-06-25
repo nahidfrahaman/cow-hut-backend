@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 import mongoose from 'mongoose';
 import { paginationHelper } from '../../../helper/paginationhelper';
@@ -64,6 +65,8 @@ const getSingleUser = async (id: string): Promise<IUser | null> => {
 
 const updateUser = async (id: string, updatedData: Partial<IUser>) => {
   const { name, ...userUpdatedData } = updatedData;
+  console.log('form service : ', userUpdatedData);
+  console.log('form service : name', name);
 
   const updatedStudentData: Partial<IUser> = { ...userUpdatedData };
 
@@ -73,7 +76,7 @@ const updateUser = async (id: string, updatedData: Partial<IUser>) => {
       (updatedStudentData as any)[nameKey] = name[key as keyof typeof name];
     });
   }
-  const results = await User.findOneAndUpdate({ id }, updatedStudentData, {
+  const results = await User.findOneAndUpdate({ _id: id }, updatedStudentData, {
     new: true,
   });
   return results;
@@ -87,6 +90,7 @@ const userDelete = async (id: string): Promise<IUser | null> => {
     const results = await User.findByIdAndDelete([id], { session });
 
     finalResults = results;
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const deleteAuthUser = await AuthUser.findOneAndDelete([{ id: id }], {
       session,
     });

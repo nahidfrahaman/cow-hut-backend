@@ -13,13 +13,6 @@ export type IAdmin = {
   address: string;
 };
 
-export type IAdminresponse = {
-  phoneNumber: string;
-  password: string;
-  role: string;
-  needPasswordChange: string;
-};
-
 export type AdminModel = {
   isAdminExist(phoneNumber: string): Promise<IAdminresponse>;
   isPasswordMatched(
@@ -29,6 +22,13 @@ export type AdminModel = {
 } & Model<IAdmin>;
 
 // export type AdminModel = Model<IAdmin, IAdminMethods>;
+
+export type IAdminresponse = {
+  phoneNumber: string;
+  password: string;
+  role: string;
+  needPasswordChange: string;
+};
 
 export type IAdminFilters = {
   searchTerm?: string;
@@ -45,4 +45,11 @@ export type ILoginResponse = {
 
 export type IRfreshResponse = {
   accessToken: string | undefined;
+};
+
+export type IUserResponse = {
+  phoneNumber: string;
+  password: string;
+  role: string;
+  needPasswordChange: string;
 };

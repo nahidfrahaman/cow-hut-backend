@@ -40,10 +40,11 @@ const getCows = catchAsync(async (req: Request, res: Response) => {
 
 const updateCow = catchAsync(
   async (req: Request, res: Response): Promise<void> => {
+    const sellerdata = req.user;
     const id = req.params.id;
     const updatedData = req.body;
 
-    const results = await CowService.updateCow(id, updatedData);
+    const results = await CowService.updateCow(id, sellerdata, updatedData);
     sendResponse(res, {
       statusCode: StatusCodes.OK,
       success: true,
@@ -74,12 +75,13 @@ const getSingleCow = catchAsync(
 const deleteCow = catchAsync(
   async (req: Request, res: Response): Promise<void> => {
     const id = req.params.id;
+    const sellerData = req.user;
 
-    const results = await CowService.deleteCow(id);
+    const results = await CowService.deleteCow(id, sellerData);
     sendResponse(res, {
       statusCode: StatusCodes.OK,
       success: true,
-      message: 'cow   deleted Successfuly',
+      message: 'cow  deleted Successfuly',
       data: results,
     });
   }

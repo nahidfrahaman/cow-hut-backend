@@ -1,8 +1,12 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 
+import { StatusCodes } from 'http-status-codes';
 import { SortOrder } from 'mongoose';
+import ApiError from '../../../errror/apiError';
 import { paginationHelper } from '../../../helper/paginationhelper';
 import { IpaginationOption } from '../../../interface/paginationOption';
+import { User } from '../user/user.model';
 import { cowSearchableFields } from './cow.constant';
 import { ICow, ICowFilters } from './cow.interface';
 import { Cow } from './cow.model';
@@ -92,8 +96,28 @@ const getCows = async (
   };
 };
 
-const updateCow = async (id: string, updatedData: Partial<ICow>) => {
-  const results = await Cow.findByIdAndUpdate(id, updatedData, { new: true });
+const updateCow = async (
+  id: string,
+  sellerdata: any,
+  updatedData: Partial<ICow>
+) => {
+  const { userNumber } = sellerdata;
+  console.log('form service ', userNumber);
+
+  const isSellerExist = await User.findOne({ phoneNumber: userNumber });
+  console.log('issellerExist form service :', isSellerExist);
+  if (!isSellerExist) {
+    throw new ApiError(StatusCodes.FORBIDDEN, 'forbiddens');
+  }
+
+  const results = await Cow.findOneAndUpdate(
+    { _id: id, seller: isSellerExist._id },
+    updatedData,
+    { new: true }
+  );
+  if (!results) {
+    throw new ApiError(StatusCodes.FORBIDDEN, 'your are not owner of this cow');
+  }
   return results;
 };
 
@@ -101,8 +125,24 @@ const getSingleCow = async (id: string) => {
   const results = await Cow.findById(id);
   return results;
 };
-const deleteCow = async (id: string) => {
-  const results = await Cow.findByIdAndDelete(id);
+
+const deleteCow = async (id: string, sellerData: any) => {
+  const { userNumber } = sellerData;
+
+  const isSellerExist = await User.findOne({ phoneNumber: userNumber });
+
+  if (!isSellerExist) {
+    throw new ApiError(StatusCodes.FORBIDDEN, 'forbiddens');
+  }
+
+  const results = await Cow.findOneAndDelete({
+    _id: id,
+    seller: isSellerExist._id,
+  });
+  console.log('results :', results);
+  if (!results) {
+    throw new ApiError(StatusCodes.FORBIDDEN, 'your are not owner of this cow');
+  }
   return results;
 };
 

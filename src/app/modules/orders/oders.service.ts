@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 
 import mongoose from 'mongoose';
@@ -22,7 +24,7 @@ const postOrders = async (payload: IOrders) => {
 
     const buyerData = await User.findById(buyer);
     const cowData = await Cow.findById(cow);
-    console.log('buyerData:', buyerData, '\ncowData:', cowData);
+    // console.log('buyerData:', buyerData, '\ncowData:', cowData);
 
     if (buyerData?.budget !== undefined && cowData?.price !== undefined) {
       if (buyerData.budget < cowData.price) {
@@ -59,7 +61,7 @@ const postOrders = async (payload: IOrders) => {
         },
         { new: true, session }
       );
-      console.log('updatebuyerdata: ', updatedbuyerbudget);
+      // console.log('updatebuyerdata: ', updatedbuyerbudget);
 
       const updatedSellerIncome = await User.findByIdAndUpdate(
         cowData?.seller,
@@ -68,11 +70,20 @@ const postOrders = async (payload: IOrders) => {
         },
         { new: true, session }
       ).populate('');
-      console.log('updatedSellerIncome : ', updatedSellerIncome);
+      // console.log('updatedSellerIncome : ', updatedSellerIncome);
     }
 
-    const finlalresults = await Order.create([payload], { session });
-    results = finlalresults;
+    const odersResults = await Order.create([payload], { session });
+    if (!odersResults.length) {
+      throw new ApiError(StatusCodes.FORBIDDEN, 'forbidden');
+    }
+
+    const finalresults = await Order.populate(odersResults, [
+      { path: 'cow' },
+      { path: 'buyer' },
+    ]);
+
+    results = finalresults;
     await session.commitTransaction();
     session.endSession();
   } catch (error) {
@@ -84,8 +95,30 @@ const postOrders = async (payload: IOrders) => {
   return results;
 };
 
-const getAllOrders = async () => {
-  const results = await Order.find();
+const getAllOrders = async (id: string, userData: any) => {
+  const { userNumber, role } = userData;
+  let results = null;
+  if (role === 'buyer') {
+    const buyerData = await User.findOne({ phoneNumber: userNumber });
+    console.log(buyerData._id);
+    results = await Order.find({ _id: id, buyer: buyerData._id })
+      .populate('cow')
+      .populate('buyer');
+  }
+  if (role === 'seller') {
+    const sellerData = await User.findOne({ phoneNumber: userNumber });
+    console.log(sellerData._id);
+    const cowData = await Cow.findOne({ seller: sellerData._id });
+    if (cowData !== null) {
+      results = await Order.find({ _id: id, cow: cowData._id })
+        .populate('cow')
+        .populate('buyer');
+    }
+  }
+  if (role === 'admin') {
+    results = await Order.find().populate('cow').populate('buyer');
+  }
+
   return results;
 };
 

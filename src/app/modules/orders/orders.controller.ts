@@ -17,7 +17,9 @@ const postOrders = catchAsync(async (req: Request, res: Response) => {
 });
 
 const getAllOrders = catchAsync(async (req: Request, res: Response) => {
-  const results = await OrdersServie.getAllOrders();
+  const userData = req.user;
+
+  const results = await OrdersServie.getAllOrders(req.params.id, userData);
   sendResponse(res, {
     statusCode: StatusCodes.OK,
     success: true,

@@ -34,7 +34,7 @@ const login = catchAsync(async (req: Request, res: Response): Promise<void> => {
   sendResponse<ILoginResponse>(res, {
     statusCode: StatusCodes.OK,
     success: true,
-    message: 'user login successfuly',
+    message: 'admin login successfuly',
     data: others,
   });
 });
@@ -47,7 +47,7 @@ const refreshToken = catchAsync(
     sendResponse(res, {
       statusCode: StatusCodes.OK,
       success: true,
-      message: 'user login successfuly',
+      message: 'admin login successfuly',
       data: results,
     });
   }
