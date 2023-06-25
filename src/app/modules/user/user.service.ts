@@ -106,9 +106,39 @@ const userDelete = async (id: string): Promise<IUser | null> => {
   return finalResults;
 };
 
+const getmyProfile = async (
+  userData: any
+): Promise<Partial<IUser[]> | null> => {
+  console.log(userData);
+  const agg = [
+    {
+      $match: {
+        phoneNumber: '01714516180',
+        role: 'seller',
+      },
+    },
+    {
+      $project: {
+        _id: 0,
+        name: 1,
+        phoneNumber: 1,
+        address: 1,
+      },
+    },
+  ];
+  const results = await User.aggregate(agg);
+  let finalResults;
+  if (results.length) {
+    finalResults = results[0];
+  }
+
+  return finalResults;
+};
+
 export const UserService = {
   getAllUser,
   getSingleUser,
   updateUser,
   userDelete,
+  getmyProfile,
 };

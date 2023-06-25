@@ -70,9 +70,28 @@ const userDelete = catchAsync(
   }
 );
 
+const getmyProfile = catchAsync(
+  async (req: Request, res: Response): Promise<void> => {
+    const userData = req.user;
+
+    const results = await UserService.getmyProfile(userData);
+    let message = 'get User profile successfuly';
+    if (!results) {
+      message = 'user not found';
+    }
+    sendResponse(res, {
+      statusCode: StatusCodes.OK,
+      success: true,
+      message: message,
+      data: results,
+    });
+  }
+);
+
 export const UserController = {
   getAllUser,
   getSingleUser,
   updateUser,
   userDelete,
+  getmyProfile,
 };

@@ -6,6 +6,12 @@ import { UserController } from './user.controller';
 import { UserValidation } from './user.validation';
 const router = express.Router();
 
+router.get(
+  '/my-profile',
+  auth(ENUM_USER_ROLLE.ADMIN, ENUM_USER_ROLLE.BUYER, ENUM_USER_ROLLE.SELLER),
+  UserController.getmyProfile
+);
+
 router.get('/:id', auth(ENUM_USER_ROLLE.ADMIN), UserController.getSingleUser);
 router.patch(
   '/:id',
