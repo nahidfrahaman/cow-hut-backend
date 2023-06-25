@@ -1,6 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
+import bcrypt from 'bcrypt';
+import { StatusCodes } from 'http-status-codes';
 import mongoose from 'mongoose';
+import config from '../../../config';
+import ApiError from '../../../errror/apiError';
 import { paginationHelper } from '../../../helper/paginationhelper';
 import { IpaginationOption } from '../../../interface/paginationOption';
 import { AuthUser } from '../auth/auth.model';
@@ -135,10 +139,44 @@ const getmyProfile = async (
   return finalResults;
 };
 
+const updateMyProfile = async (userData: any, payload: IUser) => {
+  const { userNumber, role } = userData;
+  const { name, password, ...updatedData } = payload;
+
+  const updatedUserdData: any = updatedData;
+
+  if (name && Object.keys(name).length > 0) {
+    Object.keys(name).forEach(key => {
+      const namekey = `name.${key}`;
+      updatedUserdData[namekey] = name[key as keyof typeof name];
+    });
+  }
+
+  if (password) {
+    updatedUserdData.password = await bcrypt.hash(
+      password,
+      Number(config.bcrypt_solt_roud)
+    );
+  }
+  const isUserExist = await User.findOne({ phoneNumber: userNumber });
+  if (!isUserExist) {
+    throw new ApiError(StatusCodes.FORBIDDEN, 'fobidden');
+  }
+  console.log(isUserExist);
+
+  const results = await User.findOneAndUpdate(
+    { phoneNumber: userNumber, role },
+    updatedUserdData,
+    { new: true }
+  );
+  return results;
+};
+
 export const UserService = {
   getAllUser,
   getSingleUser,
   updateUser,
   userDelete,
   getmyProfile,
+  updateMyProfile,
 };
