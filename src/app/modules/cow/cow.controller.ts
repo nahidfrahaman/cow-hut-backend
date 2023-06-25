@@ -48,7 +48,7 @@ const updateCow = catchAsync(
     sendResponse(res, {
       statusCode: StatusCodes.OK,
       success: true,
-      message: 'user updated Successfuly',
+      message: 'cow updated Successfuly',
       data: results,
     });
   }

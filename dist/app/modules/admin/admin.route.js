@@ -9,7 +9,7 @@ const validRequest_1 = __importDefault(require("../../middlewares/validRequest")
 const admin_controller_1 = require("./admin.controller");
 const admin_validation_1 = require("./admin.validation");
 const router = express_1.default.Router();
-router.post('/create-admin', (0, validRequest_1.default)(admin_validation_1.AdminValidation.createAdminZodSchema), admin_controller_1.AdminController.createAdmin);
+router.post('/createAdmin', (0, validRequest_1.default)(admin_validation_1.AdminValidation.createAdminZodSchema), admin_controller_1.AdminController.createAdmin);
 router.post('/login', admin_controller_1.AdminController.login);
-router.post('/refresh-token', admin_controller_1.AdminController.refreshToken);
+router.post('/refreshToken', admin_controller_1.AdminController.refreshToken);
 exports.AdminRoutes = router;

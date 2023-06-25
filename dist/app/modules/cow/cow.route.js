@@ -9,7 +9,7 @@ const user_1 = require("../../../enum/user");
 const auth_1 = __importDefault(require("../../middlewares/auth"));
 const cow_controller_1 = require("./cow.controller");
 const router = express_1.default.Router();
-router.post('/create-cow', (0, auth_1.default)(user_1.ENUM_USER_ROLLE.SELLER), cow_controller_1.CowController.createCow);
+router.post('/createCow', (0, auth_1.default)(user_1.ENUM_USER_ROLLE.SELLER), cow_controller_1.CowController.createCow);
 router.get('/:id', (0, auth_1.default)(user_1.ENUM_USER_ROLLE.ADMIN, user_1.ENUM_USER_ROLLE.BUYER, user_1.ENUM_USER_ROLLE.SELLER), cow_controller_1.CowController.getSingleCow);
 router.patch('/:id', (0, auth_1.default)(user_1.ENUM_USER_ROLLE.SELLER), cow_controller_1.CowController.updateCow);
 router.delete('/:id', (0, auth_1.default)(user_1.ENUM_USER_ROLLE.SELLER), cow_controller_1.CowController.deleteCow);

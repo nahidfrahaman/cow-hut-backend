@@ -7,7 +7,7 @@ import { UserValidation } from './user.validation';
 const router = express.Router();
 
 router.patch(
-  '/my-profile',
+  '/myProfile',
   auth(ENUM_USER_ROLLE.ADMIN, ENUM_USER_ROLLE.BUYER, ENUM_USER_ROLLE.SELLER),
   UserController.updatemyProfile
 );

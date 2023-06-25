@@ -54,7 +54,7 @@ const updateCow = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void
     (0, sendeResponse_1.default)(res, {
         statusCode: http_status_codes_1.StatusCodes.OK,
         success: true,
-        message: 'user updated Successfuly',
+        message: 'cow updated Successfuly',
         data: results,
     });
 }));

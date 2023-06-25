@@ -6,7 +6,7 @@ import { CowController } from './cow.controller';
 const router = express.Router();
 
 router.post(
-  '/create-cow',
+  '/createCow',
   auth(ENUM_USER_ROLLE.SELLER),
   CowController.createCow
 );
