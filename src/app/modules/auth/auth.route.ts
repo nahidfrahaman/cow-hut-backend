@@ -6,11 +6,11 @@ import { AuthController } from './auth.controller';
 const router = express.Router();
 
 router.post(
-  '/sign-up',
+  '/signUp',
   validateRequest(UserValidation.createUserZodSchema),
   AuthController.createUser
 );
 router.post('/login', AuthController.login);
-router.post('/refresh-token', AuthController.refreshToken);
+router.post('/refreshToken', AuthController.refreshToken);
 
 export const AuthRoutes = router;

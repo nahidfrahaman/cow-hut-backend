@@ -18,7 +18,7 @@ app.use('/api/v1/', route_1.default);
 app.use(globarErrorHandler_1.default);
 // testing;
 app.get('/', (req, res) => {
-    res.send('working');
+    res.send('welcome cow-hut-with-auth backend');
 });
 app.use((req, res, next) => {
     next();

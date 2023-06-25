@@ -17,7 +17,7 @@ app.use(globalErrorHandler);
 // testing;
 
 app.get('/', (req, res) => {
-  res.send('working');
+  res.send('welcome cow-hut-with-auth backend');
 });
 
 app.use((req: Request, res: Response, next: NextFunction) => {
