@@ -7,6 +7,7 @@ import config from '../../../config';
 import ApiError from '../../../errror/apiError';
 import { paginationHelper } from '../../../helper/paginationhelper';
 import { IpaginationOption } from '../../../interface/paginationOption';
+import { Admin } from '../admin/admin.model';
 import { AuthUser } from '../auth/auth.model';
 import { userSearchabeFields } from './user.constant';
 import { IUser, IUserFilters } from './user.interface';
@@ -114,11 +115,13 @@ const getmyProfile = async (
   userData: any
 ): Promise<Partial<IUser[]> | null> => {
   console.log(userData);
+  let finalResults;
+
   const agg = [
     {
       $match: {
-        phoneNumber: '01714516180',
-        role: 'seller',
+        phoneNumber: userData.userNumber,
+        role: userData.role,
       },
     },
     {
@@ -127,11 +130,16 @@ const getmyProfile = async (
         name: 1,
         phoneNumber: 1,
         address: 1,
+        role: 1,
       },
     },
   ];
+  if (userData.role === 'admin') {
+    const results = await Admin.aggregate(agg);
+    finalResults = results[0];
+  }
   const results = await User.aggregate(agg);
-  let finalResults;
+
   if (results.length) {
     finalResults = results[0];
   }
@@ -158,18 +166,34 @@ const updateMyProfile = async (userData: any, payload: IUser) => {
       Number(config.bcrypt_solt_roud)
     );
   }
-  const isUserExist = await User.findOne({ phoneNumber: userNumber });
-  if (!isUserExist) {
-    throw new ApiError(StatusCodes.FORBIDDEN, 'fobidden');
-  }
-  console.log(isUserExist);
+  let finalResults = null;
+  if (role === 'seller' || role === 'buyer') {
+    const isUserExist = await User.findOne({ phoneNumber: userNumber });
+    if (!isUserExist) {
+      throw new ApiError(StatusCodes.FORBIDDEN, 'fobidden');
+    }
+    console.log(isUserExist);
 
-  const results = await User.findOneAndUpdate(
-    { phoneNumber: userNumber, role },
-    updatedUserdData,
-    { new: true }
-  );
-  return results;
+    finalResults = await User.findOneAndUpdate(
+      { phoneNumber: userNumber, role },
+      updatedUserdData,
+      { new: true }
+    );
+  }
+  if (role === 'admin') {
+    const isAdminExist = await Admin.findOne({ phoneNumber: userNumber });
+    if (!isAdminExist) {
+      throw new ApiError(StatusCodes.FORBIDDEN, 'fobidden');
+    }
+
+    finalResults = await Admin.findOneAndUpdate(
+      { phoneNumber: userNumber, role },
+      updatedUserdData,
+      { new: true }
+    );
+  }
+
+  return finalResults;
 };
 
 export const UserService = {
