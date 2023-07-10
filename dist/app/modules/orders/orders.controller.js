@@ -27,6 +27,16 @@ const postOrders = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, voi
         data: results,
     });
 }));
+const getSpecifiqOrders = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const userData = req.user;
+    const results = yield oders_service_1.OrdersServie.getSpecefiqOrder(req.params.id, userData);
+    (0, sendeResponse_1.default)(res, {
+        statusCode: http_status_codes_1.StatusCodes.OK,
+        success: true,
+        message: 'oders retrive Successfuly',
+        data: results,
+    });
+}));
 const getAllOrders = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const userData = req.user;
     const results = yield oders_service_1.OrdersServie.getAllOrders(req.params.id, userData);
@@ -40,4 +50,5 @@ const getAllOrders = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, v
 exports.OrdersController = {
     postOrders,
     getAllOrders,
+    getSpecifiqOrders,
 };

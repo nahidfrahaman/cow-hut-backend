@@ -85,7 +85,7 @@ const postOrders = (payload) => __awaiter(void 0, void 0, void 0, function* () {
     }
     return results;
 });
-const getAllOrders = (id, userData) => __awaiter(void 0, void 0, void 0, function* () {
+const getSpecefiqOrder = (id, userData) => __awaiter(void 0, void 0, void 0, function* () {
     const { userNumber, role } = userData;
     let results = null;
     if (role === 'buyer') {
@@ -113,7 +113,19 @@ const getAllOrders = (id, userData) => __awaiter(void 0, void 0, void 0, functio
     }
     return results;
 });
+const getAllOrders = (id, userData) => __awaiter(void 0, void 0, void 0, function* () {
+    const { userNumber, role } = userData;
+    let results = null;
+    if (role === 'admin') {
+        results = yield orders_model_1.Order.find().populate('cow').populate('buyer');
+        if (!results) {
+            throw new apiError_1.default(http_status_codes_1.StatusCodes.EXPECTATION_FAILED, 'you have no order yeat');
+        }
+    }
+    return results;
+});
 exports.OrdersServie = {
     postOrders,
+    getSpecefiqOrder,
     getAllOrders,
 };

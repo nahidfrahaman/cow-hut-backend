@@ -11,8 +11,8 @@ const validRequest_1 = __importDefault(require("../../middlewares/validRequest")
 const user_controller_1 = require("./user.controller");
 const user_validation_1 = require("./user.validation");
 const router = express_1.default.Router();
-router.patch('/myProfile', (0, auth_1.default)(user_1.ENUM_USER_ROLLE.ADMIN, user_1.ENUM_USER_ROLLE.BUYER, user_1.ENUM_USER_ROLLE.SELLER), user_controller_1.UserController.updatemyProfile);
-router.get('/myProfile', (0, auth_1.default)(user_1.ENUM_USER_ROLLE.ADMIN, user_1.ENUM_USER_ROLLE.BUYER, user_1.ENUM_USER_ROLLE.SELLER), user_controller_1.UserController.getmyProfile);
+router.patch('/my-profile', (0, auth_1.default)(user_1.ENUM_USER_ROLLE.ADMIN, user_1.ENUM_USER_ROLLE.BUYER, user_1.ENUM_USER_ROLLE.SELLER), user_controller_1.UserController.updatemyProfile);
+router.get('/my-profile', (0, auth_1.default)(user_1.ENUM_USER_ROLLE.ADMIN, user_1.ENUM_USER_ROLLE.BUYER, user_1.ENUM_USER_ROLLE.SELLER), user_controller_1.UserController.getmyProfile);
 router.get('/:id', (0, auth_1.default)(user_1.ENUM_USER_ROLLE.ADMIN), user_controller_1.UserController.getSingleUser);
 router.patch('/:id', (0, validRequest_1.default)(user_validation_1.UserValidation.updateUserZodSchema), (0, auth_1.default)(user_1.ENUM_USER_ROLLE.ADMIN), user_controller_1.UserController.updateUser);
 router.delete('/:id', (0, auth_1.default)(user_1.ENUM_USER_ROLLE.ADMIN), user_controller_1.UserController.userDelete);

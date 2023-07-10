@@ -95,7 +95,7 @@ const postOrders = async (payload: IOrders) => {
   return results;
 };
 
-const getAllOrders = async (id: string, userData: any) => {
+const getSpecefiqOrder = async (id: string, userData: any) => {
   const { userNumber, role } = userData;
   let results = null;
   if (role === 'buyer') {
@@ -127,8 +127,25 @@ const getAllOrders = async (id: string, userData: any) => {
 
   return results;
 };
+const getAllOrders = async (id: string, userData: any) => {
+  const { userNumber, role } = userData;
+  let results = null;
+
+  if (role === 'admin') {
+    results = await Order.find().populate('cow').populate('buyer');
+    if (!results) {
+      throw new ApiError(
+        StatusCodes.EXPECTATION_FAILED,
+        'you have no order yeat'
+      );
+    }
+  }
+
+  return results;
+};
 
 export const OrdersServie = {
   postOrders,
+  getSpecefiqOrder,
   getAllOrders,
 };

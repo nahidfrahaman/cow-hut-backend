@@ -5,11 +5,7 @@ import { CowController } from './cow.controller';
 
 const router = express.Router();
 
-router.post(
-  '/createCow',
-  auth(ENUM_USER_ROLLE.SELLER),
-  CowController.createCow
-);
+router.post('/', auth(ENUM_USER_ROLLE.SELLER), CowController.createCow);
 router.get(
   '/:id',
   auth(ENUM_USER_ROLLE.ADMIN, ENUM_USER_ROLLE.BUYER, ENUM_USER_ROLLE.SELLER),

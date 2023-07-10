@@ -6,11 +6,11 @@ import { AdminValidation } from './admin.validation';
 const router = express.Router();
 
 router.post(
-  '/createAdmin',
+  '/create-admin',
   validateRequest(AdminValidation.createAdminZodSchema),
   AdminController.createAdmin
 );
 router.post('/login', AdminController.login);
-router.post('/refreshToken', AdminController.refreshToken);
+router.post('/refresh-token', AdminController.refreshToken);
 
 export const AdminRoutes = router;

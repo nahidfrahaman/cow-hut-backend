@@ -16,6 +16,17 @@ const postOrders = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+const getSpecifiqOrders = catchAsync(async (req: Request, res: Response) => {
+  const userData = req.user;
+
+  const results = await OrdersServie.getSpecefiqOrder(req.params.id, userData);
+  sendResponse(res, {
+    statusCode: StatusCodes.OK,
+    success: true,
+    message: 'oders retrive Successfuly',
+    data: results,
+  });
+});
 const getAllOrders = catchAsync(async (req: Request, res: Response) => {
   const userData = req.user;
 
@@ -31,4 +42,5 @@ const getAllOrders = catchAsync(async (req: Request, res: Response) => {
 export const OrdersController = {
   postOrders,
   getAllOrders,
+  getSpecifiqOrders,
 };
